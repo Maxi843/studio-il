@@ -1,19 +1,9 @@
 {
   "projects": [
     {
-      "name": "Dr. Ramu’s Residence",
-      "code": "RRAV",
       "no": "2411",
-      "type": "Residence",
-      "scope": "Architecture & Interiors",
-      "categories": [
-        "Architecture",
-        "Interior Design"
-      ],
-      "stage": "Sketch proposal",
-      "year": "2026",
       "summary": "A two-storey family house under tiled, sloping roofs: a pillared living hall with a swing, a planted courtyard and a covered terrace. Exterior and every room designed together.",
-      "cover": "/projects/rrav/02.jpg",
+      "name": "Dr. Ramu’s Residence",
       "spaces": [
         {
           "title": "Exterior",
@@ -106,21 +96,22 @@
             "/projects/rrav/41.jpg"
           ]
         }
-      ]
-    },
-    {
-      "name": "IT Office",
-      "code": "PSDC",
-      "no": "2607",
-      "type": "Workplace",
-      "scope": "Interior design",
+      ],
+      "code": "RRAV",
+      "scope": "Architecture & Interiors",
+      "cover": "/projects/rrav/02.jpg",
+      "type": "Residence",
       "categories": [
+        "Architecture",
         "Interior Design"
       ],
-      "stage": "Sketch proposal",
       "year": "2026",
+      "stage": "Sketch proposal"
+    },
+    {
+      "no": "2607",
       "summary": "An office interior in Coimbatore, planned around one long open work space, with a lounge, conference room and two cabins. Dark timber, warm plaster walls and a deep red floor.",
-      "cover": "/projects/psdc/11.jpg",
+      "name": "IT Office",
       "spaces": [
         {
           "title": "Plan",
@@ -184,21 +175,21 @@
             "/projects/psdc/17.jpg"
           ]
         }
-      ]
-    },
-    {
-      "name": "Siva’s Bedroom",
-      "code": "SBRI",
-      "no": "0725",
-      "type": "Residence",
+      ],
+      "code": "PSDC",
       "scope": "Interior design",
+      "cover": "/projects/psdc/11.jpg",
+      "type": "Workplace",
       "categories": [
         "Interior Design"
       ],
-      "stage": "Final proposal",
       "year": "2026",
+      "stage": "Sketch proposal"
+    },
+    {
+      "no": "0725",
       "summary": "A bedroom suite with bedroom, walk-in wardrobe and bathroom, in timber veneer, lime-finished walls and stone, drawn for both day and night light.",
-      "cover": "/projects/sbri/06.jpg",
+      "name": "Siva’s Bedroom",
       "spaces": [
         {
           "title": "Moodboard",
@@ -245,21 +236,21 @@
             "/projects/sbri/15.jpg"
           ]
         }
-      ]
-    },
-    {
-      "name": "Planet Mobiles",
-      "code": "PMCI",
-      "no": "0219",
-      "type": "Retail",
+      ],
+      "code": "SBRI",
       "scope": "Interior design",
+      "cover": "/projects/sbri/06.jpg",
+      "type": "Residence",
       "categories": [
         "Interior Design"
       ],
-      "stage": "Final proposal",
       "year": "2026",
+      "stage": "Final proposal"
+    },
+    {
+      "no": "0219",
       "summary": "A compact mobile store: a glazed entrance front, a long service counter and a small work space behind.",
-      "cover": "/projects/pmci/01.jpg",
+      "name": "Planet Mobiles",
       "spaces": [
         {
           "title": "Entrance space",
@@ -281,7 +272,37 @@
             "/projects/pmci/05.jpg"
           ]
         }
-      ]
+      ],
+      "code": "PMCI",
+      "scope": "Interior design",
+      "cover": "/projects/pmci/01.jpg",
+      "type": "Retail",
+      "categories": [
+        "Interior Design"
+      ],
+      "year": "2026",
+      "stage": "Final proposal"
+    },
+    {
+      "no": "ffffffffffffffff",
+      "summary": "fffffffffffff",
+      "name": "fffffffff",
+      "spaces": [
+        {
+          "title": "jjjjj",
+          "images": [
+            "/uploads/f0f1e0cd50ea0a79367cf735e3145b31.jpg"
+          ]
+        }
+      ],
+      "code": "ffffffffffffff",
+      "cover": "/uploads/f0f1e0cd50ea0a79367cf735e3145b31.jpg",
+      "type": "ffffffffffffff",
+      "categories": [
+        "Interior Design"
+      ],
+      "year": "2002",
+      "stage": "ffffffff"
     }
   ]
 }
