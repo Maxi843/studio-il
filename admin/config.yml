@@ -141,7 +141,8 @@ collections:
           - label: Notes
             name: notes
             widget: list
-            hint: Put the newest note at the top. The journal page shows the newest note of each topic.
+            hint: New notes are added at the top. The journal page shows the top note of each topic, so drag a note to the top to show it.
+            add_to_top: true
             collapsed: true
             summary: "{{fields.category}} · {{fields.title}}"
             fields:
