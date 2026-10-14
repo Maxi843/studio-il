@@ -1,0 +1,14 @@
+// Cloudflare Workers settings: serve this folder as the website, and run worker.js
+// only for /api/* (the editor's GitHub login).
+{
+  "$schema": "node_modules/wrangler/config-schema.json",
+  "name": "studio-il",
+  "main": "worker.js",
+  "compatibility_date": "2026-10-01",
+  "assets": {
+    "directory": ".",
+    "binding": "ASSETS",
+    "run_worker_first": ["/api/*"]
+  },
+  "observability": { "enabled": true }
+}

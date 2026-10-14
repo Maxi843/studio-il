@@ -2,7 +2,7 @@
 
 The client edits everything at **https://YOUR-SITE/admin/**: home page text and slideshow,
 projects with their spaces and pictures, journal notes and topics, contact details, footer
-and Tamil translations. Every Publish saves the change to GitHub and Cloudflare Pages
+and Tamil translations. Every Publish saves the change to GitHub and Cloudflare
 updates the live site within a minute or two.
 
 All website text lives in `content/*.json`; pictures uploaded from the editor go to `uploads/`.
@@ -11,22 +11,23 @@ The pages read these files, so no code is touched when editing.
 ## How it fits together
 
 - **GitHub** (`Maxi843/studio-il`) holds the site. Free.
-- **Cloudflare Pages** publishes it on every change. Free, no build step.
-- **Editor login** runs on the site itself: `functions/api/auth.js` and `functions/api/callback.js`
-  (Cloudflare Pages Functions) sign the editor in with GitHub.
+- **Cloudflare Workers** publishes it on every change (settings in `wrangler.jsonc`). Free, no build step.
+  `.assetsignore` lists files that must never be published (the `.git` folder, setup notes).
+- **Editor login** runs on the site itself: `worker.js` answers `/api/auth` and `/api/callback`
+  and signs the editor in with GitHub.
 - **Contact form** sends through Web3Forms using the key in the dashboard (Contact, Form key).
   With no key the Send button opens the visitor's email app instead.
 
 ## One-time setup
 
-1. **Cloudflare Pages:** Workers & Pages, Create, Pages, Connect to Git, pick `studio-il`.
-   Framework preset None, build command empty, build output directory `/`. Deploy.
-2. **Site address:** put the address Cloudflare gives (e.g. `https://studio-il.pages.dev`,
+1. **Cloudflare:** Workers & Pages, Create, Import a repository, pick `studio-il` (the existing repo,
+   not a clone). Project name `studio-il`, build command empty, deploy command `npx wrangler deploy`.
+2. **Site address:** put the address Cloudflare gives (e.g. `https://studio-il.<account>.workers.dev`,
    or the custom domain later) in `admin/config.yml` as `base_url`.
 3. **GitHub login app:** github.com/settings/developers, OAuth Apps, New OAuth App.
    Homepage URL = the site address; callback URL = `<site address>/api/callback`.
    Copy the Client ID and generate a Client Secret.
-4. **Keys in Cloudflare:** project Settings, Variables and Secrets, add
+4. **Keys in Cloudflare:** the Worker's Settings, Variables and Secrets, add
    `GITHUB_CLIENT_ID` and `GITHUB_CLIENT_SECRET` (as a secret). Then redeploy.
 5. **Client access:** the client makes a free GitHub account; add them to the repository
    (Settings, Collaborators). They sign in at `/admin/` with "Login with GitHub".

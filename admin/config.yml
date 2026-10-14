@@ -3,15 +3,15 @@
 # Open  <your-site>/admin/  to edit. Every Publish updates the live site
 # within a minute or two.
 #
-# The site is hosted on Cloudflare Pages; GitHub login runs through
-# functions/api/auth.js and callback.js; base_url must be the site address.
+# The site is hosted on Cloudflare (Workers, see wrangler.jsonc); GitHub login runs in
+# worker.js at /api/auth and /api/callback; base_url must be the site address.
 # See EDITING-SETUP.md.
 # ------------------------------------------------------------------
 backend:
   name: github
   repo: Maxi843/studio-il
   branch: main
-  base_url: https://studio-il.pages.dev   # the Cloudflare address of the site
+  base_url: https://studio-il.prathamsharma-max.workers.dev   # the Cloudflare address of the site
   auth_endpoint: api/auth
   commit_messages:
     update: "Website edit: {{collection}} / {{slug}}"
