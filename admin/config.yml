@@ -1,0 +1,233 @@
+# ------------------------------------------------------------------
+# Studio Il · editing dashboard (Decap CMS)
+# Open  <your-site>/admin/  to edit. Every Save publishes to the live site
+# within a minute or two.
+#
+# SETUP (once): replace OWNER/REPO below with the GitHub repository that
+# holds this site, and connect GitHub login in Netlify. See EDITING-SETUP.md.
+# ------------------------------------------------------------------
+backend:
+  name: github
+  repo: OWNER/REPO
+  branch: main
+  commit_messages:
+    update: "Website edit: {{collection}} / {{slug}}"
+    uploadMedia: "Website upload: {{path}}"
+
+# lets the dashboard be tried on this computer without logging in (npx decap-server)
+local_backend: true
+
+# new pictures go here; they are resized for the visitor automatically by Netlify
+media_folder: uploads
+public_folder: /uploads
+
+locale: en
+site_url: https://luxury-kitsune-74a89f.netlify.app
+display_url: https://luxury-kitsune-74a89f.netlify.app
+logo_url: /favicon.svg
+
+collections:
+
+  # ------------------------------------------------------------ HOME
+  - name: home
+    label: Home page
+    description: The landing page, the text on the left and the slideshow.
+    editor: { preview: false }
+    files:
+      - name: home
+        label: Home page
+        file: content/home.json
+        fields:
+          - { label: Heading, name: title, widget: string }
+          - label: Small lines under the heading
+            name: credits
+            widget: list
+            collapsed: false
+            summary: "{{fields.label}}: {{fields.value}}"
+            fields:
+              - { label: Label, name: label, widget: string, hint: "e.g. Practice" }
+              - { label: Text, name: value, widget: string, hint: "e.g. Architecture, Interiors, Documentation" }
+          - label: Paragraphs
+            name: paragraphs
+            widget: list
+            collapsed: false
+            hint: Keep each paragraph to about 40 words so the page still fits on one screen.
+            field: { label: Paragraph, name: text, widget: text }
+          - label: Slideshow pictures
+            name: slideshow
+            widget: list
+            hint: Drag to change the order. Each picture opens the project you choose.
+            summary: "{{fields.project}}"
+            fields:
+              - { label: Picture, name: image, widget: image, choose_url: false }
+              - label: Opens this project
+                name: project
+                widget: relation
+                collection: projects
+                file: projects
+                value_field: "projects.*.code"
+                search_fields: ["projects.*.name", "projects.*.code"]
+                display_fields: ["projects.*.name"]
+
+  # ------------------------------------------------------------ PROJECTS
+  - name: projects
+    label: Projects
+    description: Every project, its details, its spaces (rooms) and their pictures.
+    editor: { preview: false }
+    files:
+      - name: projects
+        label: All projects
+        file: content/projects.json
+        fields:
+          - label: Projects
+            name: projects
+            widget: list
+            hint: The order here is the order on the website. Drag to reorder; use the bin icon to remove one.
+            collapsed: true
+            summary: "{{fields.name}}"
+            fields:
+              - { label: Project name, name: name, widget: string }
+              - label: Short code
+                name: code
+                widget: string
+                hint: Used in the web address (project.html?p=CODE). Letters and numbers only, and different for every project.
+                pattern: ["^[A-Za-z0-9-]+$", "Letters, numbers and dashes only"]
+              - { label: Job number, name: no, widget: string, required: false }
+              - { label: Type, name: type, widget: string, hint: "e.g. Residence, Workplace, Retail" }
+              - { label: Scope, name: scope, widget: string, hint: "e.g. Architecture & Interiors" }
+              - label: Show under
+                name: categories
+                widget: select
+                multiple: true
+                options: ["Architecture", "Interior Design"]
+                hint: Which filters on the Projects page this project appears under.
+              - { label: Stage, name: stage, widget: string, hint: "e.g. Sketch proposal, Under construction, Completed" }
+              - { label: Year, name: year, widget: string }
+              - { label: Short description, name: summary, widget: text }
+              - { label: Main picture, name: cover, widget: image, choose_url: false }
+              - label: Spaces (rooms)
+                name: spaces
+                widget: list
+                collapsed: true
+                summary: "{{fields.title}}"
+                hint: Each space is a heading on the project page with its own pictures.
+                fields:
+                  - { label: Space name, name: title, widget: string, hint: "e.g. Living, Kitchen, Courtyard" }
+                  - label: Pictures
+                    name: images
+                    widget: list
+                    field: { label: Picture, name: image, widget: image, choose_url: false }
+
+      - name: projects-page
+        label: Projects page text
+        file: content/projects-page.json
+        fields:
+          - { label: Word for all projects, name: all, widget: string }
+          - { label: Word for the Architecture filter, name: architecture, widget: string }
+          - { label: Word for the Interior Design filter, name: interiors, widget: string }
+          - { label: Introduction, name: intro, widget: text }
+
+  # ------------------------------------------------------------ JOURNAL
+  - name: journal
+    label: Journal
+    description: Blog notes, the topics they are filed under, and the journal page text.
+    editor: { preview: false }
+    files:
+      - name: notes
+        label: Notes (blog posts)
+        file: content/journal.json
+        fields:
+          - label: Notes
+            name: notes
+            widget: list
+            hint: Put the newest note at the top. The journal page shows the newest note of each topic.
+            collapsed: true
+            summary: "{{fields.category}} · {{fields.title}}"
+            fields:
+              - { label: Title, name: title, widget: string }
+              - label: Topic
+                name: category
+                widget: relation
+                collection: journal
+                file: topics
+                value_field: "topics.*.name"
+                search_fields: ["topics.*.name"]
+                display_fields: ["topics.*.name"]
+              - { label: Date, name: date, widget: string, hint: "Written as it should appear, e.g. October 2026" }
+              - { label: Picture, name: image, widget: image, choose_url: false }
+              - { label: Short summary, name: summary, widget: text, hint: One or two sentences shown on the journal page. }
+              - { label: Full text, name: body, widget: text, hint: Leave an empty line between paragraphs. }
+
+      - name: topics
+        label: Topics
+        file: content/topics.json
+        fields:
+          - label: Topics
+            name: topics
+            widget: list
+            hint: The journal's divisions, in the order they appear. Renaming a topic here does not rename it on notes already filed under it.
+            summary: "{{fields.name}}"
+            fields:
+              - { label: Topic name, name: name, widget: string }
+
+      - name: journal-page
+        label: Journal page text
+        file: content/journal-page.json
+        fields:
+          - { label: Small line above the heading, name: kicker, widget: string }
+          - { label: Heading, name: title, widget: string }
+          - { label: Line under the heading, name: subtitle, widget: string }
+
+  # ------------------------------------------------------------ CONTACT
+  - name: contact
+    label: Contact
+    editor: { preview: false }
+    files:
+      - name: details
+        label: Contact details and footer
+        file: content/contact.json
+        fields:
+          - { label: Studio name (footer), name: name, widget: string }
+          - { label: Email, name: email, widget: string }
+          - { label: Phone numbers, name: phones, widget: list, field: { label: Phone, name: phone, widget: string } }
+          - { label: Address lines, name: address, widget: list, field: { label: Line, name: line, widget: string } }
+          - { label: Google Maps link, name: map_url, widget: string, required: false }
+          - label: Instagram accounts
+            name: instagram
+            widget: list
+            summary: "{{fields.label}}"
+            fields:
+              - { label: Handle, name: label, widget: string, hint: "e.g. @studio.il" }
+              - { label: Link, name: url, widget: string }
+          - { label: LinkedIn link, name: linkedin, widget: string, required: false }
+          - { label: Footer line after the name, name: rights, widget: string }
+
+      - name: contact-page
+        label: Contact page
+        file: content/contact-page.json
+        fields:
+          - { label: Heading, name: title, widget: string }
+          - { label: Line above the form, name: intro, widget: string }
+          - { label: Picture, name: image, widget: image, choose_url: false }
+          - { label: "Choices for 'What are you interested in?'", name: interests, widget: list, field: { label: Choice, name: choice, widget: string } }
+          - { label: "Choices for 'How did you hear about us?'", name: sources, widget: list, field: { label: Choice, name: choice, widget: string } }
+
+  # ------------------------------------------------------------ TAMIL
+  - name: tamil
+    label: Tamil translations
+    description: The Tamil shown when a visitor presses தமிழ். Anything without a Tamil line here stays in English.
+    editor: { preview: false }
+    files:
+      - name: tamil
+        label: Tamil translations
+        file: content/tamil.json
+        fields:
+          - label: Phrases
+            name: translations
+            widget: list
+            collapsed: true
+            summary: "{{fields.en}}"
+            hint: The English must match the website text exactly (copy and paste it).
+            fields:
+              - { label: English, name: en, widget: text }
+              - { label: Tamil, name: ta, widget: text }

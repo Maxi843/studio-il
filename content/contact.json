@@ -1,0 +1,25 @@
+{
+  "name": "Studio Il",
+  "email": "hello@studio-il.example",
+  "phones": [
+    "+91 94898 53836",
+    "+91 93452 64073"
+  ],
+  "address": [
+    "43/1A, Rajh Modern Complex, Nalli Hospital Road",
+    "Municipal Colony Road, Erode 638011, Tamil Nadu"
+  ],
+  "map_url": "https://www.google.com/maps/search/?api=1&query=Rajh+Modern+Complex+Nalli+Hospital+Road+Erode+638011",
+  "instagram": [
+    {
+      "label": "@hariesh_rg",
+      "url": "https://www.instagram.com/hariesh_rg/"
+    },
+    {
+      "label": "@pavethran_rg",
+      "url": "https://www.instagram.com/pavethran_rg/"
+    }
+  ],
+  "linkedin": "",
+  "rights": "All rights reserved."
+}

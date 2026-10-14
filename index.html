@@ -1,0 +1,90 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="icon" href="favicon.svg" type="image/svg+xml">
+  <title>Studio Il | Architecture and Interiors, Erode</title>
+  <meta name="description" content="Studio Il is an architecture and interior design practice in Erode, Tamil Nadu.">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Studio Il | Architecture and Interiors, Erode">
+  <meta property="og:description" content="Studio Il is an architecture and interior design practice in Erode, Tamil Nadu.">
+  <meta property="og:image" content="projects/rrav/02.jpg">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="theme-color" content="#002f63">
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "ArchitectureFirm",
+    "name": "Studio Il",
+    "telephone": "+91-9489853836",
+    "address": {
+      "@type": "PostalAddress",
+      "streetAddress": "43/1A, Rajh Modern Complex, Nalli Hospital Road, Municipal Colony Road",
+      "addressLocality": "Erode",
+      "addressRegion": "Tamil Nadu",
+      "postalCode": "638011",
+      "addressCountry": "IN"
+    },
+    "knowsAbout": ["Architecture", "Interior design", "Architectural documentation"],
+    "sameAs": ["https://www.instagram.com/hariesh_rg/", "https://www.instagram.com/pavethran_rg/"]
+  }
+  </script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Host+Grotesk:wght@300;400;600&display=swap" rel="stylesheet">
+  <script>try{if(localStorage.getItem('il-lang')==='ta')document.documentElement.lang='ta'}catch(e){}</script>
+  <link rel="stylesheet" href="styles.css?v=40">
+</head>
+<body class="home-page">
+
+  <div class="page">
+
+    <!-- logo left, the word Menu right; the options drop out in its place -->
+    <div class="bar">
+      <a class="logo" href="index.html" aria-label="Studio Il, home"><span>studio</span><svg viewBox="0 0 34 46" aria-hidden="true"><path d="M3 45V23h8v22h7V3h9v42"/><circle class="sun" cx="7" cy="13" r="3.4"/></svg></a>
+      <div class="drop-wrap">
+        <button class="menu-word" aria-expanded="false" aria-controls="drop" aria-label="Menu"><span data-i18n>Menu</span><svg viewBox="0 0 24 24" aria-hidden="true"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg></button>
+        <nav class="drop" id="drop" aria-label="Primary"><a href="index.html" aria-current="page" data-i18n>Home</a><a href="projects.html" data-i18n>Projects</a><a href="journal.html" data-i18n>Journal</a><a href="contact.html" data-i18n>Contact</a></nav>
+      </div>
+      <button class="lang"></button>
+    </div>
+
+    <main class="home">
+      <!-- the only text on the page; every line is a separate slot so it can be edited later -->
+      <div class="home-info" id="home-info">
+        <h1 class="title" data-i18n>Studio Il</h1>
+        <div class="credits">
+          <p><span data-i18n>Practice</span>: <span data-i18n>Architecture, Interiors, Documentation</span></p>
+          <p><span data-i18n>Architects</span>: <span data-i18n>Hariesh RG</span>, <span data-i18n>Pavethran RG</span></p>
+          <p><span data-i18n>Location</span>: <span data-i18n>Erode, Tamil Nadu</span></p>
+        </div>
+        <p data-i18n>Studio Il is an architecture and interior design practice in Erode, Tamil Nadu. Il, இல், is the Tamil word for home, and it is where every project begins: with how people live, work and gather in a place.</p>
+        <p data-i18n>We design the building and its rooms together, with structure, light, joinery and furniture drawn as one idea, and show every space in full before it is built.</p>
+      </div>
+
+      <!-- slideshow: arrows on the picture, dots underneath -->
+      <section class="slides" aria-roledescription="carousel" aria-label="Projects">
+        <div class="slides-view">
+          <div class="slides-track" id="track"></div>
+          <button class="slide-arrow go-prev" aria-label="Previous image"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M15 5l-7 7 7 7"/></svg></button>
+          <button class="slide-arrow go-next" aria-label="Next image"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M9 5l7 7-7 7"/></svg></button>
+        </div>
+        <div class="slides-foot">
+          <p class="credits slide-cap" id="slide-cap" aria-live="polite"></p>
+          <div class="slide-dots" id="slide-dots"></div>
+        </div>
+      </section>
+    </main>
+
+  </div>
+
+
+  <footer class="foot">
+    <p class="foot-rights">&copy; <span class="year"></span> <span class="foot-name" data-i18n>Studio Il</span>. <span class="foot-rights-text" data-i18n>All rights reserved.</span></p>
+    <div class="foot-icons" id="foot-icons"></div>
+  </footer>
+
+  <script src="script.js?v=40" defer></script>
+</body>
+</html>

@@ -1,0 +1,55 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="icon" href="favicon.svg" type="image/svg+xml">
+  <title>Project | Studio Il</title>
+  <meta name="description" content="Studio Il is an architecture and interior design practice in Erode, Tamil Nadu.">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Project | Studio Il">
+  <meta property="og:description" content="Studio Il is an architecture and interior design practice in Erode, Tamil Nadu.">
+  <meta property="og:image" content="projects/rrav/02.jpg">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="theme-color" content="#002f63">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Host+Grotesk:wght@300;400;600&display=swap" rel="stylesheet">
+  <script>try{if(localStorage.getItem('il-lang')==='ta')document.documentElement.lang='ta'}catch(e){}</script>
+  <link rel="stylesheet" href="styles.css?v=40">
+</head>
+<body>
+
+  <div class="page">
+
+    <!-- logo left, the word Menu right; the options drop out in its place -->
+    <div class="bar">
+      <a class="logo" href="index.html" aria-label="Studio Il, home"><span>studio</span><svg viewBox="0 0 34 46" aria-hidden="true"><path d="M3 45V23h8v22h7V3h9v42"/><circle class="sun" cx="7" cy="13" r="3.4"/></svg></a>
+      <div class="drop-wrap">
+        <button class="menu-word" aria-expanded="false" aria-controls="drop" aria-label="Menu"><span data-i18n>Menu</span><svg viewBox="0 0 24 24" aria-hidden="true"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg></button>
+        <nav class="drop" id="drop" aria-label="Primary"><a href="index.html" data-i18n>Home</a><a href="projects.html" aria-current="page" data-i18n>Projects</a><a href="journal.html" data-i18n>Journal</a><a href="contact.html" data-i18n>Contact</a></nav>
+      </div>
+      <button class="lang"></button>
+    </div>
+
+    <main id="project"></main>
+
+  </div>
+
+
+  <div class="lightbox" aria-hidden="true" role="dialog" aria-label="Image viewer">
+    <button class="lb-close" aria-label="Close">Close</button>
+    <button class="lb-prev" aria-label="Previous image">←</button>
+    <img alt="">
+    <button class="lb-next" aria-label="Next image">→</button>
+    <span class="lb-cap"></span>
+  </div>
+
+  <footer class="foot">
+    <p class="foot-rights">&copy; <span class="year"></span> <span class="foot-name" data-i18n>Studio Il</span>. <span class="foot-rights-text" data-i18n>All rights reserved.</span></p>
+    <div class="foot-icons" id="foot-icons"></div>
+  </footer>
+
+  <script src="script.js?v=40" defer></script>
+</body>
+</html>

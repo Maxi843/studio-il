@@ -1,0 +1,287 @@
+{
+  "projects": [
+    {
+      "name": "Dr. Ramu’s Residence",
+      "code": "RRAV",
+      "no": "2411",
+      "type": "Residence",
+      "scope": "Architecture & Interiors",
+      "categories": [
+        "Architecture",
+        "Interior Design"
+      ],
+      "stage": "Sketch proposal",
+      "year": "2026",
+      "summary": "A two-storey family house under tiled, sloping roofs: a pillared living hall with a swing, a planted courtyard and a covered terrace. Exterior and every room designed together.",
+      "cover": "/projects/rrav/02.jpg",
+      "spaces": [
+        {
+          "title": "Exterior",
+          "images": [
+            "/projects/rrav/01.jpg",
+            "/projects/rrav/02.jpg",
+            "/projects/rrav/03.jpg",
+            "/projects/rrav/04.jpg",
+            "/projects/rrav/05.jpg"
+          ]
+        },
+        {
+          "title": "Living",
+          "images": [
+            "/projects/rrav/06.jpg",
+            "/projects/rrav/07.jpg",
+            "/projects/rrav/08.jpg"
+          ]
+        },
+        {
+          "title": "Dining",
+          "images": [
+            "/projects/rrav/09.jpg",
+            "/projects/rrav/10.jpg",
+            "/projects/rrav/11.jpg"
+          ]
+        },
+        {
+          "title": "Kitchen",
+          "images": [
+            "/projects/rrav/12.jpg",
+            "/projects/rrav/13.jpg",
+            "/projects/rrav/14.jpg"
+          ]
+        },
+        {
+          "title": "Parent’s Bedroom",
+          "images": [
+            "/projects/rrav/15.jpg",
+            "/projects/rrav/16.jpg",
+            "/projects/rrav/17.jpg",
+            "/projects/rrav/18.jpg",
+            "/projects/rrav/19.jpg",
+            "/projects/rrav/20.jpg"
+          ]
+        },
+        {
+          "title": "Master Bedroom",
+          "images": [
+            "/projects/rrav/21.jpg",
+            "/projects/rrav/22.jpg",
+            "/projects/rrav/23.jpg",
+            "/projects/rrav/24.jpg",
+            "/projects/rrav/25.jpg",
+            "/projects/rrav/26.jpg",
+            "/projects/rrav/27.jpg",
+            "/projects/rrav/28.jpg",
+            "/projects/rrav/29.jpg"
+          ]
+        },
+        {
+          "title": "Kid’s Bedroom 01",
+          "images": [
+            "/projects/rrav/30.jpg",
+            "/projects/rrav/31.jpg",
+            "/projects/rrav/32.jpg",
+            "/projects/rrav/33.jpg"
+          ]
+        },
+        {
+          "title": "Kid’s Bedroom 02",
+          "images": [
+            "/projects/rrav/34.jpg",
+            "/projects/rrav/35.jpg",
+            "/projects/rrav/36.jpg",
+            "/projects/rrav/37.jpg"
+          ]
+        },
+        {
+          "title": "Terrace",
+          "images": [
+            "/projects/rrav/38.jpg",
+            "/projects/rrav/39.jpg",
+            "/projects/rrav/40.jpg"
+          ]
+        },
+        {
+          "title": "Courtyard",
+          "images": [
+            "/projects/rrav/41.jpg"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "IT Office",
+      "code": "PSDC",
+      "no": "2607",
+      "type": "Workplace",
+      "scope": "Interior design",
+      "categories": [
+        "Interior Design"
+      ],
+      "stage": "Sketch proposal",
+      "year": "2026",
+      "summary": "An office interior in Coimbatore, planned around one long open work space, with a lounge, conference room and two cabins. Dark timber, warm plaster walls and a deep red floor.",
+      "cover": "/projects/psdc/11.jpg",
+      "spaces": [
+        {
+          "title": "Plan",
+          "images": [
+            "/projects/psdc/01.jpg"
+          ]
+        },
+        {
+          "title": "Entrance",
+          "images": [
+            "/projects/psdc/02.jpg",
+            "/projects/psdc/03.jpg"
+          ]
+        },
+        {
+          "title": "Lounge",
+          "images": [
+            "/projects/psdc/04.jpg",
+            "/projects/psdc/06.jpg"
+          ]
+        },
+        {
+          "title": "Biometric access area",
+          "images": [
+            "/projects/psdc/05.jpg"
+          ]
+        },
+        {
+          "title": "Pantry",
+          "images": [
+            "/projects/psdc/07.jpg"
+          ]
+        },
+        {
+          "title": "Open work space",
+          "images": [
+            "/projects/psdc/08.jpg",
+            "/projects/psdc/09.jpg",
+            "/projects/psdc/10.jpg",
+            "/projects/psdc/11.jpg"
+          ]
+        },
+        {
+          "title": "Conference room",
+          "images": [
+            "/projects/psdc/12.jpg",
+            "/projects/psdc/13.jpg"
+          ]
+        },
+        {
+          "title": "Cabin 01",
+          "images": [
+            "/projects/psdc/14.jpg",
+            "/projects/psdc/15.jpg"
+          ]
+        },
+        {
+          "title": "Cabin 02",
+          "images": [
+            "/projects/psdc/16.jpg",
+            "/projects/psdc/17.jpg"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Siva’s Bedroom",
+      "code": "SBRI",
+      "no": "0725",
+      "type": "Residence",
+      "scope": "Interior design",
+      "categories": [
+        "Interior Design"
+      ],
+      "stage": "Final proposal",
+      "year": "2026",
+      "summary": "A bedroom suite with bedroom, walk-in wardrobe and bathroom, in timber veneer, lime-finished walls and stone, drawn for both day and night light.",
+      "cover": "/projects/sbri/06.jpg",
+      "spaces": [
+        {
+          "title": "Moodboard",
+          "images": [
+            "/projects/sbri/01.jpg"
+          ]
+        },
+        {
+          "title": "Plan",
+          "images": [
+            "/projects/sbri/02.jpg"
+          ]
+        },
+        {
+          "title": "Bedroom",
+          "images": [
+            "/projects/sbri/03.jpg",
+            "/projects/sbri/04.jpg",
+            "/projects/sbri/05.jpg",
+            "/projects/sbri/06.jpg",
+            "/projects/sbri/07.jpg",
+            "/projects/sbri/08.jpg"
+          ]
+        },
+        {
+          "title": "Walk-in-Wardrobe",
+          "images": [
+            "/projects/sbri/09.jpg",
+            "/projects/sbri/10.jpg",
+            "/projects/sbri/11.jpg"
+          ]
+        },
+        {
+          "title": "Bathroom",
+          "images": [
+            "/projects/sbri/12.jpg",
+            "/projects/sbri/13.jpg",
+            "/projects/sbri/14.jpg"
+          ]
+        },
+        {
+          "title": "Wardrobe Outside",
+          "images": [
+            "/projects/sbri/15.jpg"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Planet Mobiles",
+      "code": "PMCI",
+      "no": "0219",
+      "type": "Retail",
+      "scope": "Interior design",
+      "categories": [
+        "Interior Design"
+      ],
+      "stage": "Final proposal",
+      "year": "2026",
+      "summary": "A compact mobile store: a glazed entrance front, a long service counter and a small work space behind.",
+      "cover": "/projects/pmci/01.jpg",
+      "spaces": [
+        {
+          "title": "Entrance space",
+          "images": [
+            "/projects/pmci/01.jpg"
+          ]
+        },
+        {
+          "title": "Interior space",
+          "images": [
+            "/projects/pmci/02.jpg",
+            "/projects/pmci/03.jpg",
+            "/projects/pmci/04.jpg"
+          ]
+        },
+        {
+          "title": "Work space",
+          "images": [
+            "/projects/pmci/05.jpg"
+          ]
+        }
+      ]
+    }
+  ]
+}

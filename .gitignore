@@ -1,0 +1,5 @@
+# old design versions, kept on this computer only
+_previous/
+node_modules/
+.DS_Store
+Thumbs.db

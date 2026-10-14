@@ -1,0 +1,47 @@
+{
+  "title": "Studio Il",
+  "credits": [
+    {
+      "label": "Practice",
+      "value": "Architecture, Interiors, Documentation"
+    },
+    {
+      "label": "Architects",
+      "value": "Hariesh RG, Pavethran RG"
+    },
+    {
+      "label": "Location",
+      "value": "Erode, Tamil Nadu"
+    }
+  ],
+  "paragraphs": [
+    "Studio Il is an architecture and interior design practice in Erode, Tamil Nadu. Il, இல், is the Tamil word for home, and it is where every project begins: with how people live, work and gather in a place.",
+    "We design the building and its rooms together, with structure, light, joinery and furniture drawn as one idea, and show every space in full before it is built."
+  ],
+  "slideshow": [
+    {
+      "image": "/projects/rrav/02.jpg",
+      "project": "RRAV"
+    },
+    {
+      "image": "/projects/psdc/11.jpg",
+      "project": "PSDC"
+    },
+    {
+      "image": "/projects/rrav/06.jpg",
+      "project": "RRAV"
+    },
+    {
+      "image": "/projects/sbri/06.jpg",
+      "project": "SBRI"
+    },
+    {
+      "image": "/projects/rrav/38.jpg",
+      "project": "RRAV"
+    },
+    {
+      "image": "/projects/pmci/01.jpg",
+      "project": "PMCI"
+    }
+  ]
+}
