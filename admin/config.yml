@@ -1,15 +1,18 @@
 # ------------------------------------------------------------------
 # Studio Il · editing dashboard (Decap CMS)
-# Open  <your-site>/admin/  to edit. Every Save publishes to the live site
+# Open  <your-site>/admin/  to edit. Every Publish updates the live site
 # within a minute or two.
 #
-# SETUP (once): the GitHub repository that holds this site is set below;
-# GitHub login must be connected in Netlify. See EDITING-SETUP.md.
+# The site is hosted on Cloudflare Pages; GitHub login runs through
+# functions/api/auth.js and callback.js; base_url must be the site address.
+# See EDITING-SETUP.md.
 # ------------------------------------------------------------------
 backend:
   name: github
   repo: Maxi843/studio-il
   branch: main
+  base_url: https://studio-il.pages.dev   # the Cloudflare address of the site
+  auth_endpoint: api/auth
   commit_messages:
     update: "Website edit: {{collection}} / {{slug}}"
     uploadMedia: "Website upload: {{path}}"
@@ -17,13 +20,11 @@ backend:
 # lets the dashboard be tried on this computer without logging in (npx decap-server)
 local_backend: true
 
-# new pictures go here; they are resized for the visitor automatically by Netlify
+# new pictures go here; they are shown as uploaded, so about 2000 px wide is best
 media_folder: uploads
 public_folder: /uploads
 
 locale: en
-site_url: https://luxury-kitsune-74a89f.netlify.app
-display_url: https://luxury-kitsune-74a89f.netlify.app
 logo_url: /favicon.svg
 
 collections:
@@ -59,7 +60,7 @@ collections:
             hint: Drag to change the order. Each picture opens the project you choose.
             summary: "{{fields.project}}"
             fields:
-              - { label: Picture, name: image, widget: image, choose_url: false }
+              - { label: Picture, name: image, widget: image, choose_url: false, hint: "JPG about 2000 px wide" }
               - label: Opens this project
                 name: project
                 widget: relation
@@ -116,7 +117,7 @@ collections:
                   - label: Pictures
                     name: images
                     widget: list
-                    field: { label: Picture, name: image, widget: image, choose_url: false }
+                    field: { label: Picture, name: image, widget: image, choose_url: false, hint: "JPG about 2000 px wide" }
 
       - name: projects-page
         label: Projects page text
@@ -154,7 +155,7 @@ collections:
                 search_fields: ["topics.*.name"]
                 display_fields: ["topics.*.name"]
               - { label: Date, name: date, widget: string, hint: "Written as it should appear, e.g. October 2026" }
-              - { label: Picture, name: image, widget: image, choose_url: false }
+              - { label: Picture, name: image, widget: image, choose_url: false, hint: "JPG about 2000 px wide" }
               - { label: Short summary, name: summary, widget: text, hint: One or two sentences shown on the journal page. }
               - { label: Full text, name: body, widget: text, hint: Leave an empty line between paragraphs. }
 
@@ -201,6 +202,11 @@ collections:
               - { label: Link, name: url, widget: string }
           - { label: LinkedIn link, name: linkedin, widget: string, required: false }
           - { label: Footer line after the name, name: rights, widget: string }
+          - label: Form key
+            name: form_key
+            widget: string
+            required: false
+            hint: The Web3Forms access key that sends contact form messages to your inbox (free at web3forms.com). Leave empty and the form opens the visitor's email app instead.
 
       - name: contact-page
         label: Contact page
@@ -208,7 +214,7 @@ collections:
         fields:
           - { label: Heading, name: title, widget: string }
           - { label: Line above the form, name: intro, widget: string }
-          - { label: Picture, name: image, widget: image, choose_url: false }
+          - { label: Picture, name: image, widget: image, choose_url: false, hint: "JPG about 2000 px wide" }
           - { label: "Choices for 'What are you interested in?'", name: interests, widget: list, field: { label: Choice, name: choice, widget: string } }
           - { label: "Choices for 'How did you hear about us?'", name: sources, widget: list, field: { label: Choice, name: choice, widget: string } }
 

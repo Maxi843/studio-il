@@ -81,11 +81,9 @@
 
     /* ---------- Pictures ----------
        The original project photos have ready-made WebP versions next to them.
-       Pictures uploaded in the dashboard are resized on the fly by Netlify's image service. */
-    const LOCAL = /^(localhost|127\.0\.0\.1|\[::1\])$/.test(location.hostname) || location.protocol === 'file:';
+       Pictures uploaded in the dashboard are shown as they were uploaded. */
     const prebuilt = src => /^\/?projects\/.+\.jpe?g$/i.test(src);
-    const cdn = (src, w) => `/.netlify/images?url=${encodeURIComponent(src)}&w=${w}&fm=webp&q=78`;
-    const big = src => (prebuilt(src) ? src.replace(/\.jpe?g$/i, '.webp') : LOCAL ? src : cdn(src, 2000));
+    const big = src => (prebuilt(src) ? src.replace(/\.jpe?g$/i, '.webp') : src);
     const pic = (src, alt, sizes, lazy = true) => {
       if (!src) return '';
       const tail = ` sizes="${sizes}" alt="${esc(alt)}" decoding="async"${lazy ? ' loading="lazy"' : ''}>`;
@@ -93,8 +91,7 @@
         const base = esc(src.replace(/\.jpe?g$/i, ''));
         return `<img src="${base}.webp" srcset="${base}-800.webp 800w, ${base}.webp 1520w"${tail}`;
       }
-      if (LOCAL) return `<img src="${esc(src)}"${tail}`;
-      return `<img src="${esc(cdn(src, 1600))}" srcset="${esc(cdn(src, 800))} 800w, ${esc(cdn(src, 1600))} 1600w, ${esc(cdn(src, 2400))} 2400w"${tail}`;
+      return `<img src="${esc(src)}"${tail}`;
     };
     const TRIO = '(max-width: 767px) 300px, (max-width: 1023px) 470px, 750px';
     const ROW = '(max-width: 767px) 92vw, 86vw';
@@ -348,8 +345,13 @@
         const data = new FormData(form);
         send.disabled = true; send.textContent = t('Sending');
         try {
-          // works once the site is on Netlify (Netlify Forms); anywhere else it falls through to email
-          const res = await fetch('/', { method: 'POST', headers: { 'Content-Type': 'application/x-www-form-urlencoded' }, body: new URLSearchParams(data).toString() });
+          if (data.get('company')) throw new Error('trap'); // only spam bots fill the hidden field
+          // sent by Web3Forms using the key set in the dashboard; without a key it falls through to email
+          if (!CT.form_key) throw new Error('no form key');
+          const body = Object.fromEntries(['name', 'phone', 'email', 'interest', 'source', 'message'].map(k => [k, data.get(k) || '']));
+          body.access_key = CT.form_key;
+          body.subject = 'Website enquiry from ' + (body.name || 'Studio Il website');
+          const res = await fetch('https://api.web3forms.com/submit', { method: 'POST', headers: { 'Content-Type': 'application/json', Accept: 'application/json' }, body: JSON.stringify(body) });
           if (!res.ok) throw new Error(res.status);
           form.reset();
           note.textContent = t('Thank you. We will be in touch soon.');
