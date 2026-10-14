@@ -141,7 +141,7 @@ collections:
           - label: Notes
             name: notes
             widget: list
-            hint: New notes are added at the top. The journal page shows the top note of each topic, so drag a note to the top to show it.
+            hint: New notes are added at the top. The journal page shows the newest-dated note of each topic.
             add_to_top: true
             collapsed: true
             summary: "{{fields.category}} · {{fields.title}}"
@@ -155,7 +155,7 @@ collections:
                 value_field: "topics.*.name"
                 search_fields: ["topics.*.name"]
                 display_fields: ["topics.*.name"]
-              - { label: Date, name: date, widget: string, hint: "Written as it should appear, e.g. October 2026" }
+              - { label: Date, name: date, widget: datetime, format: "YYYY-MM-DD", date_format: "D MMMM YYYY", time_format: false, picker_utc: true, hint: "The journal page shows the newest-dated note of each topic." }
               - { label: Picture, name: image, widget: image, choose_url: false, hint: "JPG about 2000 px wide" }
               - { label: Short summary, name: summary, widget: text, hint: One or two sentences shown on the journal page. }
               - { label: Full text, name: body, widget: text, hint: Leave an empty line between paragraphs. }

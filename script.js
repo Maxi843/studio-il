@@ -24,10 +24,15 @@
       kinds: (p.categories || []).map(c => (/interior/i.test(c) ? 'interiors' : 'architecture')),
       sections: (p.spaces || []).map(s => ({ title: s.title, images: (s.images || []).filter(Boolean).map(src => ({ src })) }))
     }));
+    // notes are dated YYYY-MM-DD in the dashboard; newest first, so each topic shows its latest note
+    const MONTHS = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
+    const ISO = /^(\d{4})-(\d{2})-(\d{2})/;
+    const when = d => { const m = ISO.exec(d || ''); return m ? +(m[1] + m[2] + m[3]) : 0; };
+    const showDate = d => { const m = ISO.exec(d || ''); return m ? `${+m[3]} ${MONTHS[m[2] - 1]} ${m[1]}` : d || ''; };
     const JOURNAL = (C.journal.notes || []).map(n => ({
-      ...n, id: slugOf(n.title),
+      ...n, id: slugOf(n.title), date: showDate(n.date), at: when(n.date),
       body: String(n.body || '').split(/\n\s*\n/).map(x => x.trim()).filter(Boolean)
-    }));
+    })).sort((a, b) => b.at - a.at);
     const DIVS = (C.topics.topics || []).map(x => x.name).filter(Boolean);
     const CT = C.contact;
     const PHONES = (CT.phones || []).filter(Boolean);
