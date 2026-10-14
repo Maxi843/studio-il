@@ -3,12 +3,12 @@
 # Open  <your-site>/admin/  to edit. Every Save publishes to the live site
 # within a minute or two.
 #
-# SETUP (once): replace OWNER/REPO below with the GitHub repository that
-# holds this site, and connect GitHub login in Netlify. See EDITING-SETUP.md.
+# SETUP (once): the GitHub repository that holds this site is set below;
+# GitHub login must be connected in Netlify. See EDITING-SETUP.md.
 # ------------------------------------------------------------------
 backend:
   name: github
-  repo: OWNER/REPO
+  repo: Maxi843/studio-il
   branch: main
   commit_messages:
     update: "Website edit: {{collection}} / {{slug}}"
