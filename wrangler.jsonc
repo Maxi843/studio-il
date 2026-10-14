@@ -10,5 +10,7 @@
     "binding": "ASSETS",
     "run_worker_first": ["/api/*"]
   },
-  "observability": { "enabled": true }
+  "observability": { "enabled": true },
+  // keep the GitHub login keys set in the Cloudflare dashboard when redeploying
+  "keep_vars": true
 }
