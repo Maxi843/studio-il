@@ -9,9 +9,9 @@
 # ------------------------------------------------------------------
 backend:
   name: github
-  repo: Maxi843/studio-il
+  repo: pavethranrg/studio-il
   branch: main
-  base_url: https://studio-il.prathamsharma-max.workers.dev   # the Cloudflare address of the site
+  base_url: https://studioil.in   # the address of the site
   auth_endpoint: api/auth
   commit_messages:
     update: "Website edit: {{collection}} / {{slug}}"

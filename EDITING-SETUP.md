@@ -10,7 +10,7 @@ The pages read these files, so no code is touched when editing.
 
 ## How it fits together
 
-- **GitHub** (`Maxi843/studio-il`) holds the site. Free.
+- **GitHub** (`pavethranrg/studio-il`) holds the site. Free.
 - **Cloudflare Workers** publishes it on every change (settings in `wrangler.jsonc`). Free, no build step.
   `.assetsignore` lists files that must never be published (the `.git` folder, setup notes).
 - **Editor login** runs on the site itself: `worker.js` answers `/api/auth` and `/api/callback`

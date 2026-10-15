@@ -240,10 +240,12 @@
       document.title = `${t(p.name)} | ${t(CT.name || 'Studio Il')}`;
       const rows = p.sections.map(s => {
         const isPlan = /plan|moodboard/i.test(s.title);
-        return s.images.map((im, ii) => {
+        const shots = s.images.map(im => {
           const n = gallery.push({ src: big(im.src), cap: `${t(p.name)}, ${t(s.title)}` }) - 1;
-          return `<button class="shot${isPlan ? ' plan' : ''}"${ii === 0 ? ` id="${slugOf(s.title)}"` : ''} data-i="${n}" aria-label="${T(s.title)}"><div>${pic(im.src, `${t(p.name)}, ${t(s.title)}`, ROW, n > 0)}</div></button>`;
+          return `<button class="shot${isPlan ? ' plan' : ''}" data-i="${n}" aria-label="${T(s.title)}"><div>${pic(im.src, `${t(p.name)}, ${t(s.title)}`, ROW, n > 0)}</div></button>`;
         }).join('');
+        // the room name shows above its pictures on phones only
+        return `<section class="space" id="${slugOf(s.title)}"><p class="space-name credits">${T(s.title)}</p>${shots}</section>`;
       }).join('');
       const line = (label, value) => (value ? `<p>${T(label)}: ${T(value)}</p>` : '');
       host.innerHTML = `

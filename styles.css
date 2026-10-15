@@ -41,7 +41,7 @@ ul { list-style: none; }
 .page { position: relative; width: 100%; max-width: 1600px; margin: 0 auto; }
 
 /* ---------- Type (reference sizes) ---------- */
-.title { font-size: 17px; font-weight: 600; line-height: 1.4; letter-spacing: -.88px; color: var(--ink); }
+.title { font-size: 17px; font-weight: 600; line-height: 1.4; letter-spacing: -.01em; color: var(--ink); }
 .credits { display: flex; flex-direction: column; gap: 2px; font-size: 10px; line-height: normal; color: var(--ink); }
 .copy { display: flex; flex-direction: column; gap: 16px; }
 
@@ -111,6 +111,19 @@ ul { list-style: none; }
 .shot img { width: 100%; height: auto; max-height: 400px; object-fit: contain; }
 .shot.plan img { background: #fff; }
 button.shot { cursor: zoom-in; }
+.space-name { display: none; }
+
+/* phones: rooms as a two-column index, and each room's pictures grouped under its name */
+@media (max-width: 767px) {
+  .trio { padding-bottom: 32px; }
+  .trio-pic > div { max-width: none; height: auto; aspect-ratio: 4 / 5; }
+  .spaces { display: grid; grid-template-columns: 1fr 1fr; column-gap: 16px; }
+  .spaces a { width: auto; padding: 10px 0; border-top: 1px solid var(--line); }
+  .space { padding: 0 16px; margin-bottom: 48px; scroll-margin-top: 72px; }
+  .space-name { display: block; padding-top: 12px; margin-bottom: 12px; border-top: 1px solid var(--line); }
+  .space .shot { padding: 0; margin-bottom: 8px; }
+  .space .shot img { max-height: 70svh; }
+}
 
 /* ---------- pages that are a title and a grid ---------- */
 .sheet { padding: 128px 16px 64px; }
