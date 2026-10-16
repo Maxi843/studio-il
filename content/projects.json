@@ -98,12 +98,12 @@
         }
       ],
       "code": "RRAV",
+      "status": "Completed",
       "scope": "Architecture & Interiors",
       "cover": "/projects/rrav/02.jpg",
       "type": "Residence",
       "year": "2026",
-      "stage": "Sketch proposal",
-      "status": "Upcoming"
+      "stage": "Sketch proposal"
     },
     {
       "no": "2607",
@@ -174,12 +174,12 @@
         }
       ],
       "code": "PSDC",
+      "status": "Upcoming",
       "scope": "Interior design",
       "cover": "/projects/psdc/11.jpg",
       "type": "Workplace",
       "year": "2026",
-      "stage": "Sketch proposal",
-      "status": "Upcoming"
+      "stage": "Sketch proposal"
     },
     {
       "no": "0725",
@@ -233,12 +233,12 @@
         }
       ],
       "code": "SBRI",
+      "status": "Completed",
       "scope": "Interior design",
       "cover": "/projects/sbri/06.jpg",
       "type": "Residence",
       "year": "2026",
-      "stage": "Final proposal",
-      "status": "Upcoming"
+      "stage": "Final proposal"
     },
     {
       "no": "0219",
@@ -267,12 +267,12 @@
         }
       ],
       "code": "PMCI",
+      "status": "Upcoming",
       "scope": "Interior design",
       "cover": "/projects/pmci/01.jpg",
       "type": "Retail",
       "year": "2026",
-      "stage": "Final proposal",
-      "status": "Upcoming"
+      "stage": "Final proposal"
     }
   ]
 }
