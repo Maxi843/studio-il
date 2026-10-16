@@ -21,7 +21,7 @@
     /* ---------- Shape the content for the pages ---------- */
     const PROJECTS = (C.projects.projects || []).map(p => ({
       ...p,
-      kinds: (p.categories || []).map(c => (/interior/i.test(c) ? 'interiors' : 'architecture')),
+      status: /complete/i.test(p.status || '') ? 'completed' : 'upcoming',
       sections: (p.spaces || []).map(s => ({ title: s.title, images: (s.images || []).filter(Boolean).map(src => ({ src })) }))
     }));
     // notes are dated YYYY-MM-DD in the dashboard; newest first, so each topic shows its latest note
@@ -54,7 +54,7 @@
         ${(C.home.paragraphs || []).filter(Boolean).map(p => `<p>${T(p)}</p>`).join('')}`;
     }
     const PP = C['projects-page'];
-    fill('[data-f="all"]', PP.all); fill('[data-f="architecture"]', PP.architecture); fill('[data-f="interiors"]', PP.interiors);
+    fill('[data-f="upcoming"]', PP.upcoming); fill('[data-f="completed"]', PP.completed);
     fill('#w-intro', PP.intro);
     const JP = C['journal-page'];
     fill('#j-kicker', JP.kicker); fill('#j-heading', JP.title); fill('#j-subtitle', JP.subtitle);
@@ -146,25 +146,33 @@
       if (!matchMedia('(prefers-reduced-motion: reduce)').matches) play();
     }
 
-    /* ---------- Projects page: all / architecture / interior design ---------- */
+    /* ---------- Projects page: upcoming / completed (both shown until one is chosen) ---------- */
     const works = qs('#works');
     if (works) {
       works.innerHTML = PROJECTS.map((p, i) => `
-        <a class="work" href="project.html?p=${esc(p.code)}" data-kinds="${p.kinds.join(' ')}">
-          <div class="pic">${pic(p.cover, t(p.name), '(max-width: 767px) 92vw, (max-width: 1023px) 46vw, 30vw', i > 2)}</div>
+        <a class="work" href="project.html?p=${esc(p.code)}" data-status="${p.status}">
+          <div class="pic">${pic(p.cover, t(p.name), '(max-width: 767px) 46vw, (max-width: 1023px) 30vw, 22vw', i > 3)}</div>
           <p class="credits">${T(p.name)}</p>
         </a>`).join('');
+      const nav = qs('#w-filter'), empty = qs('#w-empty');
+      let current = null;
       const filter = f => {
-        qsa('#w-filter a').forEach(a => a.toggleAttribute('aria-current', a.dataset.f === f));
-        qsa('.work', works).forEach(w => { w.hidden = f !== 'all' && !w.dataset.kinds.split(' ').includes(f); });
+        current = f;
+        nav.classList.toggle('all', !f);
+        qsa('a', nav).forEach(a => a.toggleAttribute('aria-current', a.dataset.f === f));
+        qsa('.work', works).forEach(w => { w.hidden = !!f && w.dataset.status !== f; });
+        const none = f && !qsa('.work:not([hidden])', works).length;
+        empty.hidden = !none;
+        if (none) empty.textContent = t(f === 'completed' ? 'Completed projects will appear here soon.' : 'New projects will appear here soon.');
       };
-      qsa('#w-filter a').forEach(a => a.addEventListener('click', e => {
+      qsa('a', nav).forEach(a => a.addEventListener('click', e => {
         e.preventDefault();
-        history.replaceState(null, '', a.getAttribute('href'));
-        filter(a.dataset.f);
+        const f = current === a.dataset.f ? null : a.dataset.f;   // pressing the chosen word again shows everything
+        history.replaceState(null, '', f ? a.getAttribute('href') : 'projects.html');
+        filter(f);
       }));
       const f0 = new URLSearchParams(location.search).get('f');
-      filter(['architecture', 'interiors'].includes(f0) ? f0 : 'all');
+      filter(['upcoming', 'completed'].includes(f0) ? f0 : null);
     }
 
     /* ---------- Journal: the newest note of each topic, the first one large ---------- */

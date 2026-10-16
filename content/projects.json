@@ -101,12 +101,9 @@
       "scope": "Architecture & Interiors",
       "cover": "/projects/rrav/02.jpg",
       "type": "Residence",
-      "categories": [
-        "Architecture",
-        "Interior Design"
-      ],
       "year": "2026",
-      "stage": "Sketch proposal"
+      "stage": "Sketch proposal",
+      "status": "Upcoming"
     },
     {
       "no": "2607",
@@ -180,11 +177,9 @@
       "scope": "Interior design",
       "cover": "/projects/psdc/11.jpg",
       "type": "Workplace",
-      "categories": [
-        "Interior Design"
-      ],
       "year": "2026",
-      "stage": "Sketch proposal"
+      "stage": "Sketch proposal",
+      "status": "Upcoming"
     },
     {
       "no": "0725",
@@ -241,11 +236,9 @@
       "scope": "Interior design",
       "cover": "/projects/sbri/06.jpg",
       "type": "Residence",
-      "categories": [
-        "Interior Design"
-      ],
       "year": "2026",
-      "stage": "Final proposal"
+      "stage": "Final proposal",
+      "status": "Upcoming"
     },
     {
       "no": "0219",
@@ -277,11 +270,9 @@
       "scope": "Interior design",
       "cover": "/projects/pmci/01.jpg",
       "type": "Retail",
-      "categories": [
-        "Interior Design"
-      ],
       "year": "2026",
-      "stage": "Final proposal"
+      "stage": "Final proposal",
+      "status": "Upcoming"
     }
   ]
 }
