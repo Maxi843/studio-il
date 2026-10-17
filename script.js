@@ -21,7 +21,6 @@
     /* ---------- Shape the content for the pages ---------- */
     const PROJECTS = (C.projects.projects || []).map(p => ({
       ...p,
-      status: /complete/i.test(p.status || '') ? 'completed' : 'upcoming',
       sections: (p.spaces || []).map(s => ({ title: s.title, images: (s.images || []).filter(Boolean).map(src => ({ src })) }))
     }));
     // notes are dated YYYY-MM-DD in the dashboard; newest first, so each topic shows its latest note
@@ -54,7 +53,7 @@
         ${(C.home.paragraphs || []).filter(Boolean).map(p => `<p>${T(p)}</p>`).join('')}`;
     }
     const PP = C['projects-page'];
-    fill('[data-f="upcoming"]', PP.upcoming); fill('[data-f="completed"]', PP.completed);
+    fill('#w-title', PP.title);
     fill('#w-intro', PP.intro);
     const JP = C['journal-page'];
     fill('#j-kicker', JP.kicker); fill('#j-heading', JP.title); fill('#j-subtitle', JP.subtitle);
@@ -146,33 +145,14 @@
       if (!matchMedia('(prefers-reduced-motion: reduce)').matches) play();
     }
 
-    /* ---------- Projects page: upcoming / completed (both shown until one is chosen) ---------- */
+    /* ---------- Projects page: every project, four across ---------- */
     const works = qs('#works');
     if (works) {
       works.innerHTML = PROJECTS.map((p, i) => `
-        <a class="work" href="project.html?p=${esc(p.code)}" data-status="${p.status}">
+        <a class="work" href="project.html?p=${esc(p.code)}">
           <div class="pic">${pic(p.cover, t(p.name), '(max-width: 767px) 46vw, (max-width: 1023px) 30vw, 22vw', i > 3)}</div>
           <p class="credits">${T(p.name)}</p>
         </a>`).join('');
-      const nav = qs('#w-filter'), empty = qs('#w-empty');
-      let current = null;
-      const filter = f => {
-        current = f;
-        nav.classList.toggle('all', !f);
-        qsa('a', nav).forEach(a => a.toggleAttribute('aria-current', a.dataset.f === f));
-        qsa('.work', works).forEach(w => { w.hidden = !!f && w.dataset.status !== f; });
-        const none = f && !qsa('.work:not([hidden])', works).length;
-        empty.hidden = !none;
-        if (none) empty.textContent = t(f === 'completed' ? 'Completed projects will appear here soon.' : 'New projects will appear here soon.');
-      };
-      qsa('a', nav).forEach(a => a.addEventListener('click', e => {
-        e.preventDefault();
-        const f = current === a.dataset.f ? null : a.dataset.f;   // pressing the chosen word again shows everything
-        history.replaceState(null, '', f ? a.getAttribute('href') : 'projects.html');
-        filter(f);
-      }));
-      const f0 = new URLSearchParams(location.search).get('f');
-      filter(['upcoming', 'completed'].includes(f0) ? f0 : null);
     }
 
     /* ---------- Journal: the newest note of each topic, the first one large ---------- */

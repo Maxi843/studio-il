@@ -96,12 +96,6 @@ collections:
               - { label: Job number, name: no, widget: string, required: false }
               - { label: Type, name: type, widget: string, hint: "e.g. Residence, Workplace, Retail" }
               - { label: Scope, name: scope, widget: string, hint: "e.g. Architecture & Interiors" }
-              - label: Status
-                name: status
-                widget: select
-                options: ["Upcoming", "Completed"]
-                default: "Upcoming"
-                hint: Which filter on the Projects page this project appears under.
               - { label: Stage, name: stage, widget: string, hint: "e.g. Sketch proposal, Under construction, Completed" }
               - { label: Year, name: year, widget: string }
               - { label: Short description, name: summary, widget: text }
@@ -123,8 +117,7 @@ collections:
         label: Projects page text
         file: content/projects-page.json
         fields:
-          - { label: Word for the Upcoming filter, name: upcoming, widget: string }
-          - { label: Word for the Completed filter, name: completed, widget: string }
+          - { label: Heading, name: title, widget: string }
           - { label: Introduction, name: intro, widget: text }
 
   # ------------------------------------------------------------ JOURNAL

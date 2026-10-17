@@ -129,12 +129,7 @@ button.shot { cursor: zoom-in; }
 .sheet { padding: 128px 16px 64px; }
 .sheet > .title { margin-bottom: 24px; }
 /* projects page: three filter words, an intro, then tall pictures three across */
-.w-filter { display: flex; flex-wrap: wrap; gap: 8px 40px; }
-.w-filter a { color: var(--muted); transition: color .2s; }
-.w-filter a:hover, .w-filter a[aria-current] { color: var(--ink); }
 .w-intro { max-width: 52em; margin: 28px 0 40px; color: var(--ink); }
-.w-empty { color: var(--muted); }
-.w-filter.all a { color: var(--ink); }
 .works { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 28px 12px; }
 .work[hidden] { display: none; }
 .work .pic { aspect-ratio: 1 / 1; overflow: hidden; background: #e3e1da; }
